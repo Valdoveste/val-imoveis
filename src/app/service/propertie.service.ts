@@ -1,7 +1,7 @@
 import PocketBase from 'pocketbase'
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { PropertieModel } from '../models/propertie/propertie.model';
+import { PropertieModel } from '../models/propertie.model';
 
 @Injectable({
   providedIn: 'root'

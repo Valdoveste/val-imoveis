@@ -1,6 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { RecordModel } from 'pocketbase';
-import { PropertieModel } from 'src/app/models/propertie/propertie.model';
 import { PropertieService } from 'src/app/service/propertie.service';
 
 @Component({
@@ -9,16 +7,16 @@ import { PropertieService } from 'src/app/service/propertie.service';
   styleUrls: ['./propertie.component.scss']
 })
 export class PropertieComponent implements OnInit {
-  records!: any;
+  properties!: any;
 
   PropertieService = inject(PropertieService);
 
   private async getPropertie() {
     try {
-      this.records = await this.PropertieService.getPropertie();
+      this.properties = await this.PropertieService.getPropertie();
 
     } catch (error) {
-
+      console.log(error)
     }
   }
 

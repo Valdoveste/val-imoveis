@@ -7,15 +7,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 animate-box">
+      <div class="col-md-4 animate-box" *ngFor="let experience of experiences">
         <div class="feature-left d-flex">
           <span class="m-2">
-            <img src="../assets/images/logo-brasil-brokers.png" width="60px" height="60px" alt="">
+            <img
+              src="http://127.0.0.1:8090/api/files/{{experience.collectionId}}/{{experience.id}}/{{experience.logo_empresa}}"
+              alt="{{experience.logo_empresa}}" width="60px" height="60px" />
           </span>
           <div class="feature-copy">
-            <h3>Brasil Brokers</h3>
-            <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-            <p><a href="#">Learn More</a></p>
+            <h3>{{experience.titulo}}</h3>
+            <p>{{experience.desc}}</p>
           </div>
         </div>
       </div>

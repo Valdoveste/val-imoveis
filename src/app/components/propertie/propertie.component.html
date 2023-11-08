@@ -7,29 +7,29 @@
           perspiciatis accusamus asperiores sint consequuntur debitis.</p>
       </div>
     </div>
-    <div class="row" *ngFor="let recordsItem of records">
+    <div class="row" *ngFor="let propertiesItem of properties">
       <div class="col-md-4 animate-box">
         <div class="property">
           <a href="#" class="fh5co-property" style="background-image: url(../assets/images/property-1.jpg);">
-            <span class="status">{{recordsItem.status}}</span>
+            <span class="status">{{propertiesItem.status}}</span>
             <ul class="list-details">
-              <li>{{recordsItem.metragem}} m2
+              <li>{{propertiesItem.metragem}} m2
               <li>
-              <li>{{recordsItem.dormitorio}} Dormitórios</li>
-              <li>{{recordsItem.banheiro}} Banheiros</li>
-              <li>{{recordsItem.vaga}} Vaga</li>
+              <li>{{propertiesItem.dormitorio}} Dormitórios</li>
+              <li>{{propertiesItem.banheiro}} Banheiros</li>
+              <li>{{propertiesItem.vaga}} Vaga</li>
             </ul>
           </a>
           <div class="property-details">
-            <h3>{{recordsItem.nome}}</h3>
+            <h3>{{propertiesItem.nome}}</h3>
             <span class="price"> {{
-              recordsItem.valor
+              propertiesItem.valor
               .toString()
               .replace('.',',')
               |
               mask: 'separator.2': {thousandSeparator: '.',prefix: 'R$ '}
-              }}<span *ngIf="!recordsItem.valor.toString().includes('.')">,00</span></span>
-            <p>{{recordsItem.desc}}</p>
+              }}<span *ngIf="!propertiesItem.valor.toString().includes('.')">,00</span></span>
+            <p>{{propertiesItem.desc}}</p>
             <span class="address">
               <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="#000000"
                 style="--darkreader-inline-fill: #000000;" data-darkreader-inline-fill="">
@@ -38,7 +38,7 @@
                 </path>
                 <path fill="none" d="M0 0h24v24H0z"></path>
               </svg>
-              {{recordsItem.endereco}}
+              {{propertiesItem.endereco}}
               <!-- Thomas Street, St. Louis, MO 8990, USA -->
             </span>
           </div>

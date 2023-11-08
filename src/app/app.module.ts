@@ -1,6 +1,5 @@
-import { NgModule, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AngularFaviconService } from 'angular-favicon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -30,13 +29,4 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]
 })
-export class AppModule implements OnInit {
-
-  constructor(private ngxFavicon: AngularFaviconService) { }
-
-  ngOnInit() {
-    // this.ngxFavicon.setFavicon(favicon_url);
-    // // OR 
-    // this.ngxFavicon.setFavicon(favicon_url, alt_favicon_url);
-  }
-}
+export class AppModule { }

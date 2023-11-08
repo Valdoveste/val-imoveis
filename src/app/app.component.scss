@@ -21,6 +21,9 @@ $input-border-focus: $brand-primary;
 $form-group-margin-bottom: 30px;
 
 
+.brand-primary {
+	fill: #44C662;	
+}
 
 // Mixin
 @mixin fh5co-translateX($translatex) {
@@ -927,13 +930,10 @@ div.cs-select {
 	box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
 }
 
-#fh5co-blog-section,
-#fh5co-features,
-#fh5co-popular-properties,
-#fh5co-properties,
-#fh5co-testimonial,
-#fh5co-about,
-#fh5co-contact,
+#construtoras,
+#imoveis,
+#home,
+#contato,
 .fh5co-content-section {
 	clear: both;
 	padding: 7em 0;
@@ -1092,7 +1092,7 @@ div.cs-select {
 }
 
 
-#fh5co-about {
+#home {
 
 	// h3,p{
 	// }
@@ -1329,7 +1329,7 @@ div.cs-select {
 
 
 
-#fh5co-features {
+#construtoras {
 	padding: 7em 0;
 
 
@@ -1393,7 +1393,7 @@ div.cs-select {
 }
 
 
-#fh5co-contact {
+#contato {
 	@include flexwrap;
 	@include flex;
 
@@ -1453,7 +1453,7 @@ div.cs-select {
 	}
 }
 
-.fh5co-contact {
+.contato {
 	padding: 0 !important;
 }
 

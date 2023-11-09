@@ -11,16 +11,6 @@ export class PropertieComponent implements OnInit {
 
   PropertieService = inject(PropertieService);
 
-  replaceSpaces(item: any) {
-    let test = ''
-    for (const key in item) {
-      if (Object.prototype.hasOwnProperty.call(item, key)) {
-        test += item[key];
-      }
-    }
-    return test.replaceAll(' ', '+');
-  }
-
   private async getPropertie() {
     try {
       this.properties = await this.PropertieService.getPropertie();

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ExperienceModel } from '../models/experience.model';
 
-const pb = new PocketBase(environment.baseApiUrl);
+const pb = new PocketBase(environment.POCKETBASE_URL);
 @Injectable({
   providedIn: 'root'
 })

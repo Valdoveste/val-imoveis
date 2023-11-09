@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { PropertieModel } from '../models/propertie.model';
 
+const pb = new PocketBase(environment.POCKETBASE_URL);
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,12 +12,17 @@ export class PropertieService {
 
   constructor() { }
 
-  async getPropertie(): Promise<PropertieModel[]> {
-    const pb = new PocketBase(environment.baseApiUrl);
-    const records: PropertieModel[] = await pb.collection('Propertie').getFullList({
+  async getAllPropertie(): Promise<PropertieModel[]> {
+    const recordsProperties: PropertieModel[] = await pb.collection('Propertie').getFullList({
       sort: '-created',
     });
-    return records;
+
+    return recordsProperties;
   }
 
+  async getPropertie(recordID: string): Promise<PropertieModel> {
+    const recordPropertie: PropertieModel = await pb.collection('Propertie').getOne(recordID);
+
+    return recordPropertie;
+  }
 }

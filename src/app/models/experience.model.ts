@@ -5,6 +5,8 @@ export interface ExperienceModel {
     created: string;
     updated: string;
     logo_empresa: string;
+    width: string;
+    height: string;
     titulo: string;
     desc: string;
 }

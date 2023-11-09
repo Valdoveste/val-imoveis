@@ -10,14 +10,13 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 animate-box" *ngFor="let experienceItem of experiences">
-        <div class="feature-left d-flex">
-          <span class="m-2">
+      <div class="col-md-4 animate-box"
+        *ngFor="let experienceItem of experiences">
+        <div class="feature-left d-flex justify-content-center align-items-center">
             <img
               src="https://val-imoveis.pockethost.io/api/files/{{experienceItem.collectionId}}/{{experienceItem.id}}/{{experienceItem.logo_empresa}}"
               alt="{{experienceItem.logo_empresa}}" width="{{experienceItem.width}}"
               height="{{experienceItem.height}}" />
-          </span>
         </div>
       </div>
     </div>

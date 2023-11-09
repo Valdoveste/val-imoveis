@@ -1,10 +1,10 @@
-$font-primary: 'Open Sans', Arial, sans-serif;
+$font-primary: "Inter", sans-serif;
 // Overrides
 $grid-gutter-width: 40px;
 $border-radius-base: 4px;
 $padding-base-vertical: 14px;
 
-$brand-primary: #44C662;
+$brand-primary: #238662;
 $brand-secondary: #EE7738;
 
 $brand-white: #fff;
@@ -22,7 +22,11 @@ $form-group-margin-bottom: 30px;
 
 
 .brand-primary {
-	fill: #44C662;	
+	fill: #238662;
+}
+
+.cursor-pointer {
+	cursor: pointer;
 }
 
 // Mixin
@@ -114,7 +118,20 @@ $form-group-margin-bottom: 30px;
 
 // Template Base
 
+.nav-link {
+	color: rgba($brand-black, .6) !important;
+
+	&:hover {
+		color: rgba($brand-primary, .9) !important;
+	}
+}
+
+html {
+	scroll-behavior: smooth !important;
+}
+
 body {
+	scroll-behavior: smooth !important;
 	font-family: $font-primary;
 	line-height: 1.6;
 	font-size: 16px;
@@ -142,8 +159,8 @@ p,
 ul,
 ol {
 	margin-bottom: 1.5em;
-	font-size: 16px;
-	color: $brand-lighter;
+	font-size: 1.125rem;
+	color: $brand-black;
 	// font-weight: 300;
 	font-family: $font-primary;
 }
@@ -154,10 +171,30 @@ h3,
 h4,
 h5,
 h6 {
+	font-weight: 400;
+	font-size: 40px;
+	margin: 0 0 30px 0;
 	color: $brand-darker;
 	font-family: $font-primary;
-	font-weight: 400;
-	margin: 0 0 30px 0;
+}
+
+.lg-font-size,
+.mg-font-size,
+.sm-font-size {
+	font-weight: bold !important;
+	line-height: 150% !important;
+}
+
+.lg-font-size {
+	font-size: 2.5rem !important;
+}
+
+.mg-font-size {
+	font-size: 1.75rem !important;
+}
+
+.sm-font-size {
+	font-size: 1.125rem !important;
 }
 
 figure {
@@ -936,6 +973,7 @@ div.cs-select {
 #contato,
 .fh5co-content-section {
 	clear: both;
+	min-height: 600px !important;
 	padding: 7em 0;
 
 	@media screen and (max-width: 768px) {
@@ -946,6 +984,10 @@ div.cs-select {
 
 .fh5co-section-gray {
 	background: rgba($brand-black, .04);
+}
+
+.fh5co-section-dark-gray {
+	background-color: #eff4f8;
 }
 
 .heading-section {
@@ -1067,6 +1109,15 @@ div.cs-select {
 
 			i {
 				margin-right: 10px;
+			}
+
+			a {
+				color: rgba($brand-black, .8);
+				text-decoration: none;
+
+				&:hover {
+					color: rgba($brand-primary, .9);
+				}
 			}
 		}
 	}
@@ -1653,24 +1704,27 @@ div.cs-select {
 	}
 }
 
+
+
 #footer {
-	background: #393e46;
+	background: #121212;
 	text-align: center;
 	padding: 1rem;
 
 	p {
-		color: rgba($brand-white, .7);
-		// letter-spacing: 1px;
+		color: $brand-white;
+		letter-spacing: 1px;
 		font-size: 14px;
 
-		// text-transform: uppercase;
 		a {
+			// text-transform: uppercase;
+			text-decoration: none;
 			color: rgba($brand-white, .5);
 
 			&:hover,
 			&:active,
 			&:focus {
-				color: rgba($brand-white, .9) !important;
+				color: rgba($brand-primary, .9) !important;
 			}
 		}
 	}
@@ -1726,17 +1780,17 @@ div.cs-select {
 }
 
 .btn {
-	text-transform: uppercase;
+	font-weight: bold;
 	letter-spacing: 1px;
 	@include transition(.3s);
 
 	&.btn-primary {
-		background: $brand-primary;
 		color: $brand-white;
 		border: none !important;
+		background: rgba($brand-primary, .8);
 		border: 2px solid transparent !important;
 
-		&:hover,
+		F &:hover,
 		&:active,
 		&:focus {
 			box-shadow: none;
@@ -1748,9 +1802,9 @@ div.cs-select {
 	&:hover,
 	&:active,
 	&:focus {
-		background: #393e46 !important;
 		color: $brand-white;
 		outline: none !important;
+		background: rgba($brand-primary, .9) !important;
 	}
 
 	&.btn-default {

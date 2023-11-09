@@ -44,8 +44,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "150kb",
-                  "maximumError": "150kb"
+                  "maximumWarning": "450kb",
+                  "maximumError": "450kb"
                 }
               ],
               "outputHashing": "all"
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "val-imoveis:build:production"
+              "buildTarget": "val-imoveis:build:production"
             },
             "development": {
-              "browserTarget": "val-imoveis:build:development"
+              "buildTarget": "val-imoveis:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "val-imoveis:build"
+            "buildTarget": "val-imoveis:build"
           }
         },
         "test": {

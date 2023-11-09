@@ -7,6 +7,4 @@ export interface ExperienceModel {
     logo_empresa: string;
     width: string;
     height: string;
-    titulo: string;
-    desc: string;
 }

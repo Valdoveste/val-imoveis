@@ -1,22 +1,24 @@
-<div id="home">
+<div id="home" #home style="margin-top: 58px;">
     <div class="container">
-        <div class="row">
+        <div class="row d-flex justify-space-between">
             <div class="col">
                 <div class="col-md-12 col-md-offset-0 text-left heading-section animate-box">
-                    <h3>Olá,<br> Sou a Val</h3>
-                    <p>
+                    <h3 class="lg-font-size">Olá,<br> Sou a Val</h3>
+                    <p class="md-font-size">
                         Corretora de imóveis desde 2010, atuante em documentação imobiliária
                         e análise para aprovação de financiamento bancário.
-                        Imóveis na planta e pronto para morar, no plano MINHA CASA MINHA VIDA
+                        Imóveis na planta e pronto para morar, no plano MINHA CASA MINHA VIDA.
                     </p>
-                    <p>Construtoras que atuo:<a class="mx-2" href="#construtoras">Veja mais</a>
-                    </p>
-
                     <p>CRECI: 120.862</p>
+
+                    <button type="button" (click)="scroll('construtoras')" class="btn btn-primary mb-4">
+                        Minha experiência em construtoras
+                    </button>
+
                 </div>
             </div>
             <div class="col-sm-5 d-flex jusify-content-center align-items-center">
-                <img class="img-responsive" width="100%" alt="Val Corretora" src="../assets/images/profile.JPG">
+                <img class="img-responsive" width="100%" alt="Val Corretora" src="../assets/images/2-2.png">
             </div>
         </div>
     </div>

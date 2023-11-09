@@ -9,19 +9,11 @@ import { PropertieService } from 'src/app/service/propertie.service';
 export class PropertieComponent implements OnInit {
   properties!: any;
 
+  images = ['https://www.achoumudou.com.br/fotos/354018_1.jpg', 'https://www.achoumudou.com.br/fotos/860372_1.jpg', 'https://www.achoumudou.com.br/fotos/1757179_1.jpg'];
+
   PropertieService = inject(PropertieService);
 
-  private async getPropertie() {
-    try {
-      this.properties = await this.PropertieService.getPropertie();
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
   ngOnInit(): void {
-    this.getPropertie();
-  }
 
+  }
 }

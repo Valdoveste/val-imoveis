@@ -4,22 +4,23 @@
       <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
         <h3 class="lg-font-size">Construtoras</h3>
         <p class="md-font-size">
-          Aqui estão algumas das construtoras renomadas no
-          mercado imobiliário com as quais tenho experiência.
+          Apresento algumas das construtoras de renome que fazem parte do meu histórico de experiência no mercado
+          imobiliário.
         </p>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 animate-box" *ngFor="let experience of experiences">
+      <div class="col-md-4 animate-box" *ngFor="let experienceItem of experiences">
         <div class="feature-left d-flex">
           <span class="m-2">
             <img
-              src="http://127.0.0.1:8090/api/files/{{experience.collectionId}}/{{experience.id}}/{{experience.logo_empresa}}"
-              alt="{{experience.logo_empresa}}" width="60px" height="60px" />
+              src="http://127.0.0.1:8090/api/files/{{experienceItem.collectionId}}/{{experienceItem.id}}/{{experienceItem.logo_empresa}}"
+              alt="{{experienceItem.logo_empresa}}" width="{{experienceItem.width}}"
+              height="{{experienceItem.height}}" />
           </span>
           <div class="feature-copy">
-            <h3 class="h3-about">{{experience.titulo}}</h3>
-            <p>{{experience.desc}}</p>
+            <h3 class="h3-about">{{experienceItem.titulo}}</h3>
+            <p>{{experienceItem.desc}}</p>
           </div>
         </div>
       </div>

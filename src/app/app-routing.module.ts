@@ -25,7 +25,7 @@ const routes: Routes = [
     redirectTo: ''
   },
   {
-    path: 'imovel-detalhes/: id',
+    path: 'imovel-detalhes/:id',
     component: PropertieComponent
   }
 ];

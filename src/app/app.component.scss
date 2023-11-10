@@ -180,7 +180,8 @@ h6 {
 
 .lg-font-size,
 .mg-font-size,
-.sm-font-size {
+.sm-font-size,
+.sm-sm-font-size {
 	font-weight: bold !important;
 	line-height: 150% !important;
 }
@@ -195,6 +196,10 @@ h6 {
 
 .sm-font-size {
 	font-size: 1.125rem !important;
+}
+
+.sm-sm-font-size {
+	font-size: .90rem !important;
 }
 
 figure {
@@ -966,6 +971,7 @@ div.cs-select {
 	-o-box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
 	box-shadow: 0px 10px 20px -12px rgba(0, 0, 0, 0.18);
 }
+
 
 #construtoras,
 #imoveis,

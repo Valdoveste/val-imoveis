@@ -1,3 +1,9 @@
+@import "../../app.component.scss";
+
+#imoveis {
+    padding: 3em 0 !important;
+}
+
 .slider-container {
     gap: .2rem;
     display: grid;
@@ -12,9 +18,83 @@
 }
 
 img {
-    width: 500px;
-    height: 360px;
+    width: 600px;
+    height: 600px;
     object-fit: fill;
     user-select: none;
     pointer-events: none;
+}
+
+textarea {
+    border-radius: 5px;
+    border: solid 1px #c7c9cc !important;
+    // border-color: #dee2e6 !important;
+}
+
+.address {
+    padding: 2em 0 !important;
+
+    a {
+        font-weight: normal !important;
+    }
+}
+
+.property-costs-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+        margin-bottom: .2em !important;
+    }
+}
+
+.svg-icon-mini {
+    width: 30px;
+    height: 30px;
+    margin-right: 16px;
+}
+
+.icons-container {
+    margin-bottom: 3em;
+}
+
+.property-desc {
+    p {
+        font-weight: normal !important;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: unset !important;
+    margin-bottom: 0px !important;
+}
+
+h3 {
+    margin: 0 !important;
+}
+
+.property-costs-container {
+    background-color: #eff4f8;
+}
+
+.property {
+    margin: .5em 0 0 0 !important;
+}
+
+.icon-item {
+    min-width: 140px;
+    height: 24px;
+
+    p {
+        font-size: .95rem;
+        font-weight: bold;
+
+        span {
+            margin-left: .2rem;
+            font-size: .90rem !important;
+            font-weight: normal !important;
+        }
+    }
 }

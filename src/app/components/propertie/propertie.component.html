@@ -1,21 +1,7 @@
-<div id="carouselExampleInterval" class="carousel slide" data-bs-pause="hover" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="123">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="abc">
-    </div>  
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+<div (mousedown)="isMouseDown=true" (mouseup)="isMouseDown=false" (mousemove)="mouseMoveListener($event)"
+  (mouseenter)="mouseInSlider($event)" (mouseleave)="mouseInSlider($event)"
+  [ngClass]="{'cursor-pointer': isMouseInSlider && isMouseDown}" id="image-slider-container" class="slider-container"
+  style="margin-top: 58px;">
+  <img *ngFor="let foto of properties.fotos" draggable="false" unselectable="on"
+    src="https://val-imoveis.pockethost.io/api/files/myrbcztzk012ch4/0bbqozo1zkf8vtg/{{foto}}">
 </div>

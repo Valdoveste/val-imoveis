@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { PropertieModel } from 'src/app/models/propertie.model';
@@ -11,7 +11,10 @@ import { PropertieService } from 'src/app/service/propertie.service';
 })
 export class PropertieComponent implements OnInit {
 
-  constructor(private activeRoute: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private activeRoute: ActivatedRoute,
+  ) { }
 
   PropertieService = inject(PropertieService);
 
@@ -26,34 +29,48 @@ export class PropertieComponent implements OnInit {
       collectionName: '',
       created: '',
       updated: '',
-      nome: '',
-      status: '',
-      desc_anuncio: '',
-      desc: '',
+      imovel: '',
+      status_imovel: '',
+      desc_imovel_simple: '',
+      desc_imovel_completa: '',
+      numero_andar: 0,
       endereco: '',
-      bairro: '',
-      cidade: '',
-      estado: '',
-      cep: '',
-      numero: 0,
-      valor: 0,
-      dormitorio: 0,
-      aluguel: 0,
-      condominio: 0,
-      iptu: 0,
-      banheiro: 0,
-      metragem: 0,
-      vagas: 0,
-      andar: 0,
-      pet: false,
-      mobiliado: false,
-      prox_metro: false,
+      endereco_numero: 0,
+      endereco_bairro: '',
+      endereco_cidade: '',
+      endereco_estado: '',
+      endereco_cep: '',
+      valor_venda_imovel: 0,
+      qtd_dormitorio: 0,
+      valor_aluguel: 0,
+      valor_condominio: 0,
+      valor_iptu: 0,
+      qtd_banheiro: 0,
+      numero_metragem: 0,
+      qtd_vagas: 0,
+      aceita_pet: false,
+      aceita_fgts: false,
+      aceita_financimento: false,
+      e_mobiliado: false,
+      e_prox_metro: false,
       foto_principal: '',
       fotos: [],
+      caracteristicas: []
     };
 
   ngOnInit(): void {
     this.getPropertie();
+  }
+
+  scroll(route: string) {
+    this.router.navigate([route]).then((e) => {
+      document.getElementById(route)!.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest"
+      });
+    })
+
   }
 
   public getRouteID() {

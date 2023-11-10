@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { PropertieService } from 'src/app/service/propertie.service';
 
 @Component({

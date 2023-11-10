@@ -1,1 +1,9 @@
 @import "../../app.component.scss";
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        color: rgba($brand-primary, .8) !important;
+    }
+}

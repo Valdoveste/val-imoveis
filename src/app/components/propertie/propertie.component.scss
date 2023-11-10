@@ -1,1 +1,20 @@
-@import "../../app.component.scss";
+.slider-container {
+    gap: .2rem;
+    display: grid;
+    overflow-x: hidden;
+    grid-auto-flow: column;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+img {
+    width: 500px;
+    height: 360px;
+    object-fit: fill;
+    user-select: none;
+    pointer-events: none;
+}

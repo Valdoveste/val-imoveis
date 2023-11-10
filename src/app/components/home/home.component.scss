@@ -1,1 +1,10 @@
 @import "../../app.component.scss";
+
+.custom-shadow-sm {
+    box-shadow: 4px 4px 1px 0px rgba($brand-primary, .2);
+    transition: box-shadow ease-in-out 500ms;
+
+    &:hover {
+        box-shadow: 4px 4px 1px 0px rgba($brand-primary, .5);
+    }
+}

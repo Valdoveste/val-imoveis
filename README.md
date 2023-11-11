@@ -7,7 +7,7 @@ Five Senses Resort é uma apliação web utilizando o framework bootstrap, onde 
 
 <br><br>
 
-Veja a aplição web aqui [Five Senses Resort](https://valdoveste.github.io/fiveSensesResort/).
+Veja a aplição web aqui [Val Imóveis - Especialista Imobiliária](https://val-imoveis.vercel.app)
 
 <h3 align="center">
   
@@ -15,18 +15,10 @@ Veja a aplição web aqui [Five Senses Resort](https://valdoveste.github.io/five
   
  <br><br>
  
-![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)&nbsp;
-![JQuery](https://img.shields.io/badge/-JQuery-05122A?style=flat&logo=jquery)&nbsp;
-![HTML](https://img.shields.io/badge/-HTML-05122A?style=flat&logo=HTML5)&nbsp;
-![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=CSS3&logoColor=1572B6)&nbsp;
- ![SASS](https://img.shields.io/badge/-SASS-05122A?style=flat&logo=sass)&nbsp;
-<br />
-![BEM](https://img.shields.io/badge/-BEM-05122A?style=flat&logo=bem)&nbsp;
+![Angular](https://img.shields.io/badge/-Angular-05122A?style=flat&logo=angular)&nbsp;
+![PocketBase](https://img.shields.io/badge/-PocketBase-05122A?style=flat&logo=pocketbase)&nbsp;
 ![Bootstrap](https://img.shields.io/badge/-Bootstrap-05122A?style=flat&logo=bootstrap)&nbsp;
-![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=flat&logo=visual-studio-code&logoColor=007ACC)&nbsp;
-![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)&nbsp;
-  
-</h3>
+![Vercel](https://img.shields.io/badge/-Vercel-05122A?style=flat&logo=vercel)&nbsp;
 
 <hr>
 <br>
@@ -76,4 +68,6 @@ Veja a aplição web aqui [Five Senses Resort](https://valdoveste.github.io/five
   <img src="https://user-images.githubusercontent.com/62577482/224371845-b5e64c28-4a3f-45f9-b947-013df278bbcb.png" width="832px">
   <img src="https://user-images.githubusercontent.com/62577482/224373726-2a5b3c1f-3a70-4f88-92dc-124a137eb898.png" width="832px">
 </div>
+
+
 

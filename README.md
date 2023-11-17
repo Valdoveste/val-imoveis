@@ -9,7 +9,7 @@ Veja a aplição web aqui [Val Imóveis - Especialista Imobiliária](https://www
 
 <h3 align="center">
   
-  <img src="https://github.com/Valdoveste/val-imoveis/assets/62577482/ede085fc-f89d-4007-a2c3-7c4cae8a01ed" width="150px">
+  <img src="https://github.com/Valdoveste/val-imoveis/assets/62577482/ede085fc-f89d-4007-a2c3-7c4cae8a01ed" width="125px">
   
  <br><br>
  

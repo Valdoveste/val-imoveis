@@ -42,10 +42,10 @@
   [ngClass]="{'cursor-pointer': isMouseInSlider && isMouseDown}" id="image-slider-container" class="slider-container"
   style="margin-top: 62px;">
   <img draggable="false" unselectable="on"
-    src="https://val-imoveis.pockethost.io/api/files/myrbcztzk012ch4/0bbqozo1zkf8vtg/{{properties.foto_principal}}">
+    src="https://val-imoveis.pockethost.io/api/files/{{properties.collectionId}}/{{properties.id}}/{{properties.foto_principal}}">
 
   <img *ngFor="let foto of properties.fotos" draggable="false" unselectable="on"
-    src="https://val-imoveis.pockethost.io/api/files/myrbcztzk012ch4/0bbqozo1zkf8vtg/{{foto}}">
+    src="https://val-imoveis.pockethost.io/api/files/{{properties.collectionId}}/{{properties.id}}/{{foto}}">
 </div>
 
 <div id="imoveis">

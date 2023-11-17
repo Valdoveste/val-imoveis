@@ -1,7 +1,7 @@
 
 <h1>Val Imóveis - Especialista Imobiliária</h1>
 
-Uma MPA(multi-page application) dedicada a uma corretora de imóveis desde 2010, oferecendo uma solução especializada em documentação imobiliária e análise para aprovação de financiamento bancário. Meu trabalho abrange imóveis tanto na planta quanto prontos para morar, com especial enfoque no plano MINHA CASA MINHA VIDA. Utilizando tecnologias avançadas, como Angular, PocketHost, Boostrap e Vercel, garanto uma plataforma moderna e eficaz para atender às demandas dinâmicas desse setor. Minha dedicação contínua nesse projeto reflete meu compromisso em proporcionar uma ferramenta confiável e inovadora para a corretora e seus clientes.
+Página dedicada a uma corretora de imóveis desde 2010, oferecendo uma solução especializada em documentação imobiliária e análise para aprovação de financiamento bancário. Onde seu trabalho abrange imóveis tanto na planta quanto prontos para morar, com especial enfoque no plano MINHA CASA MINHA VIDA. Uma MPA utilizando as seguintes tecnologias Angular, PocketHost, Boostrap e Vercel, garanto uma plataforma moderna e eficaz para atender às demandas dinâmicas desse setor, além de proporcionar a flexibilidade de mudanças em tempo real on deploy.
 
 <br><br>
 

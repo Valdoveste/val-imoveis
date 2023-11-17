@@ -101,7 +101,7 @@ export class PropertieComponent implements OnInit {
 
   mouseMoveListener(event: MouseEvent) {
     if (this.isMouseDown == true) {
-      document.getElementById('image-slider-container')!.scrollLeft = (event.clientX) * 2.5;
+      document.getElementById('image-slider-container')!.scrollLeft = (event.clientX);
     }
   }
 

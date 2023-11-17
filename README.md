@@ -1,9 +1,7 @@
-<div align="center">
-   <img src="https://user-images.githubusercontent.com/62577482/224365894-7f7cab77-d9d6-4a6a-8e15-55bf1572fedf.png" width="350px">
-</div>
 
-<hr> 
-Five Senses Resort é uma apliação web utilizando o framework bootstrap, onde o objetivo foi montar um página que apresente as principais informações do primeiro Resort de Tocantins, o Five Senses veio com a necessidade do lazer no cotidiano do tocantinese em aproveitar o tempo em família e no descanso. A beleza natural do lago de Palmas e os encantos naturais da região criaram esse desejo de proporcionar um novo destino de férias. 
+<h1>Val Imóveis - Especialista Imobiliária</h1>
+
+Uma MPA(multi-page application) dedicada a uma corretora de imóveis desde 2010, oferecendo uma solução especializada em documentação imobiliária e análise para aprovação de financiamento bancário. Meu trabalho abrange imóveis tanto na planta quanto prontos para morar, com especial enfoque no plano MINHA CASA MINHA VIDA. Utilizando tecnologias avançadas, como Angular, PocketHost, Boostrap e Vercel, garanto uma plataforma moderna e eficaz para atender às demandas dinâmicas desse setor. Minha dedicação contínua nesse projeto reflete meu compromisso em proporcionar uma ferramenta confiável e inovadora para a corretora e seus clientes.
 
 <br><br>
 
@@ -11,7 +9,7 @@ Veja a aplição web aqui [Val Imóveis - Especialista Imobiliária](https://val
 
 <h3 align="center">
   
-  <img title="FIVES" src="https://user-images.githubusercontent.com/62577482/224365927-f776d0fe-14ab-4465-af96-5f7b55ca2561.png" width="150px">
+  <img src="https://github.com/Valdoveste/val-imoveis/assets/62577482/ede085fc-f89d-4007-a2c3-7c4cae8a01ed" width="150px">
   
  <br><br>
  

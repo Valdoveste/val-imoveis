@@ -7,7 +7,7 @@
 .slider-container {
     gap: .2rem;
     display: grid;
-    overflow-x: hidden;
+    overflow-x: scroll;
     grid-auto-flow: column;
     scroll-snap-type: x mandatory;
     overscroll-behavior-inline: contain;

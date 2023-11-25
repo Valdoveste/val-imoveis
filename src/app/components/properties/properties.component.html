@@ -8,8 +8,8 @@
           características únicas e potencialidades.</p>
       </div>
     </div>
-    <div class="row" *ngFor="let propertiesItem of properties">
-      <div class="col-md-4 animate-box">
+    <div class="row">
+      <div class="col-md-4 animate-box" *ngFor="let propertiesItem of properties">
         <div class="property">
           <a class="fh5co-property" [routerLink]="['imovel-detalhes', propertiesItem.id]"
             style="background-image: url(https://val-imoveis.pockethost.io/api/files/{{propertiesItem.collectionId}}/{{propertiesItem.id}}/{{propertiesItem.foto_principal}});">
@@ -25,7 +25,8 @@
           <div class="property-details">
             <h3 class="mg-font-size">{{propertiesItem.imovel}} - {{propertiesItem.endereco_bairro}}</h3>
             <span class="price sm-font-size">R$ {{
-              (propertiesItem.status_imovel == 'Aluguel' ? propertiesItem.valor_aluguel : propertiesItem.valor_venda_imovel)
+              (propertiesItem.status_imovel == 'Aluguel' ? propertiesItem.valor_aluguel :
+              propertiesItem.valor_venda_imovel)
               .toString()
               .replace('.',',')
               |

@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { PropertieModel } from 'src/app/models/propertie.model';
 import { PropertieService } from 'src/app/service/propertie.service';
+import { retryWhen } from 'rxjs';
 
 @Component({
   selector: 'app-propertie',
@@ -114,6 +115,13 @@ export class PropertieComponent implements OnInit {
     } else {
       this.isMouseInSlider = false;
     }
+  }
+
+  toUpperFirstLetter(src: string) {
+    let firstLetter: string = src.slice(0, 1).toUpperCase();
+    let wihtOutFirstLetter: string = src.slice(1, src.length);
+
+    return (firstLetter += wihtOutFirstLetter)
   }
 
 }

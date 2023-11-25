@@ -23,4 +23,11 @@ export class PropertiesComponent implements OnInit {
   ngOnInit(): void {
     this.getPropertie();
   }
+
+  toUpperFirstLetter(src: string) {
+    let firstLetter: string = src.slice(0, 1).toUpperCase();
+    let wihtOutFirstLetter: string = src.slice(1, src.length);
+
+    return (firstLetter += wihtOutFirstLetter)
+  }
 }

@@ -23,7 +23,7 @@
             </ul>
           </a>
           <div class="property-details">
-            <h3 class="mg-font-size">{{propertiesItem.imovel}} - {{propertiesItem.endereco_bairro}}</h3>
+            <h3 class="mg-font-size">{{toUpperFirstLetter(propertiesItem.imovel)}} - {{propertiesItem.endereco_bairro}}</h3>
             <span class="price sm-font-size">R$ {{
               (propertiesItem.status_imovel == 'Aluguel' ? propertiesItem.valor_aluguel :
               propertiesItem.valor_venda_imovel)

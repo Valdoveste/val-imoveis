@@ -15,15 +15,47 @@
             style="background-image: url(https://val-imoveis.pockethost.io/api/files/{{propertiesItem.collectionId}}/{{propertiesItem.id}}/{{propertiesItem.foto_principal}});">
             <span class="status">{{propertiesItem.status_imovel}}</span>
             <ul class="list-details">
-              <li>{{propertiesItem.numero_metragem}}m2
               <li>
-              <li>{{propertiesItem.qtd_dormitorio}} Dormitórios</li>
-              <li>{{propertiesItem.qtd_banheiro}} Banheiros</li>
-              <li>{{propertiesItem.qtd_vagas}} Vaga</li>
+                {{propertiesItem.numero_metragem}}m²
+              <li>
+              <li>
+                <ng-container *ngIf="propertiesItem.qtd_dormitorio > 1;">{{propertiesItem.qtd_dormitorio}}
+                  Dormotórios</ng-container>
+
+                <ng-container *ngIf="propertiesItem.qtd_dormitorio == 1;">{{propertiesItem.qtd_dormitorio}}
+                  Dormotório</ng-container>
+
+                <ng-container *ngIf="propertiesItem.qtd_dormitorio == 0;">
+                  <span>-</span>
+                </ng-container>
+              </li>
+              <li>
+                <ng-container *ngIf="propertiesItem.qtd_banheiro > 1;">{{propertiesItem.qtd_banheiro}}
+                  Banheiros</ng-container>
+
+                <ng-container *ngIf="propertiesItem.qtd_banheiro == 1;">{{propertiesItem.qtd_banheiro}}
+                  Banheiro</ng-container>
+
+                <ng-container *ngIf="propertiesItem.qtd_banheiro == 0;">
+                  <span>-</span>
+                </ng-container>
+              </li>
+              <li>
+                <ng-container *ngIf="propertiesItem.qtd_vagas > 1;">{{propertiesItem.qtd_vagas}}
+                  Vagas</ng-container>
+
+                <ng-container *ngIf="propertiesItem.qtd_vagas == 1;">{{propertiesItem.qtd_vagas}}
+                  Vaga</ng-container>
+
+                <ng-container *ngIf="propertiesItem.qtd_vagas == 0;">
+                  <span>-</span>
+                </ng-container>
+              </li>
             </ul>
           </a>
           <div class="property-details">
-            <h3 class="mg-font-size">{{toUpperFirstLetter(propertiesItem.imovel)}} - {{propertiesItem.endereco_bairro}}</h3>
+            <h3 class="mg-font-size">{{toUpperFirstLetter(propertiesItem.imovel)}} - {{propertiesItem.endereco_bairro}}
+            </h3>
             <span class="price sm-font-size">R$ {{
               (propertiesItem.status_imovel == 'Aluguel' ? propertiesItem.valor_aluguel :
               propertiesItem.valor_venda_imovel)

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node -r dotenv/config mynode.js && ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -24,6 +24,7 @@
     "angular-favicon": "^1.0.9",
     "animate.css": "^3.7.2",
     "bootstrap": "^5.3.2",
+    "dotenv": "^16.4.5",
     "ngx-mask": "^16.3.9",
     "pocketbase": "^0.19.0",
     "rxjs": "~7.8.0",

@@ -17,6 +17,11 @@ export class PropertieComponent implements OnInit {
     private activeRoute: ActivatedRoute,
   ) { }
 
+  loader = new Loader({
+    apiKey: environment.MAPSJS_API_KEY,
+    version: "weekly"
+  });
+
   PropertieService = inject(PropertieService);
 
   isMouseDown: boolean = false;

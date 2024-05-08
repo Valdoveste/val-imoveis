@@ -66,17 +66,18 @@ export class PropertieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPropertie();
+  private joinsTheStreetStrings(street_str: String[]): String {
+    let joined_street_str = "";
+
+    street_str.forEach(ele => (joined_street_str += ele));
+
+    return joined_street_str;
   }
 
-  scroll(route: string) {
-    this.router.navigate([route]).then((e) => {
-      document.getElementById(route)!.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest"
-      });
-    })
+  private replaceSpacesInStreetString(street_str: String[]): String {
+    let joined_street_str = this.joinsTheStreetStrings(street_str);
 
+    return joined_street_str.replaceAll(' ', '+');
   }
 
   public getRouteID() {

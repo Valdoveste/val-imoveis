@@ -124,4 +124,13 @@ export class PropertieComponent implements OnInit {
     return (firstLetter += wihtOutFirstLetter)
   }
 
+  public scroll(router: string) {
+    this.router.navigate([router]).then((e) => {
+      document.getElementById(router)!.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest"
+      });
+    })
+  }
 }

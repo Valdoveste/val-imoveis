@@ -1,9 +1,11 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { PropertieModel } from 'src/app/models/propertie.model';
 import { PropertieService } from 'src/app/service/propertie.service';
-import { retryWhen } from 'rxjs';
+import { Loader } from '@googlemaps/js-api-loader';
+import { GeocodingApiService } from 'src/app/service/geocoding-api.service';
+import { environment } from 'src/environments/environment';
+import { GeocodingModel } from 'src/app/models/geocoding';
 
 @Component({
   selector: 'app-propertie',
@@ -11,10 +13,10 @@ import { retryWhen } from 'rxjs';
   styleUrls: ['./propertie.component.scss']
 })
 export class PropertieComponent implements OnInit {
-
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
+    private geoCodingService: GeocodingApiService,
   ) { }
 
   loader = new Loader({
@@ -23,10 +25,6 @@ export class PropertieComponent implements OnInit {
   });
 
   PropertieService = inject(PropertieService);
-
-  isMouseDown: boolean = false;
-
-  isMouseInSlider: boolean = false;
 
   properties: PropertieModel =
     {
@@ -64,8 +62,9 @@ export class PropertieComponent implements OnInit {
       caracteristicas: []
     };
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getPropertie();
+
     const timer = setInterval(() => {
       let streetOutput = this.replaceSpacesInStreetString([
         this.properties.endereco + ", " +
@@ -81,6 +80,9 @@ export class PropertieComponent implements OnInit {
       clearInterval(timer)
     }, 1000);
   }
+
+  // Google Maps
+
   private getGeocoding(streetOutput: String) {
     this.geoCodingService.getLocationLatLng(streetOutput).subscribe({
       next: (response: GeocodingModel) => {
@@ -92,6 +94,7 @@ export class PropertieComponent implements OnInit {
       error: (err) => console.log(err)
     })
   }
+
   marker!: google.maps.Marker;
 
   private loadGoogelMaps(lat: number, lng: number) {
@@ -118,6 +121,7 @@ export class PropertieComponent implements OnInit {
 
     });
   }
+
   private joinsTheStreetStrings(street_str: String[]): String {
     let joined_street_str = "";
 
@@ -132,6 +136,9 @@ export class PropertieComponent implements OnInit {
     return joined_street_str.replaceAll(' ', '+');
   }
 
+
+  // Propetie info
+
   public getRouteID() {
     let id!: string | null;
     this.activeRoute.paramMap.subscribe({
@@ -145,26 +152,29 @@ export class PropertieComponent implements OnInit {
     const collectionID = this.getRouteID();
 
     if (collectionID) {
-      try {
-        this.PropertieService.getPropertie(collectionID).subscribe({
-          next: (response) => {
+      this.PropertieService.getPropertie(collectionID)
+        .subscribe({
+          next: (response: PropertieModel) => {
             this.properties = response;
           },
-          error: (err: HttpErrorResponse) => console.log(err)
-        })
-      } catch (err) {
-        console.log(err)
-      }
+          error: (err) => { console.log(err) }
+        });
     }
   }
 
-  mouseMoveListener(event: MouseEvent) {
+  // Image Slider
+
+  isMouseDown: boolean = false;
+
+  isMouseInSlider: boolean = false;
+
+  public mouseMoveListener(event: MouseEvent) {
     if (this.isMouseDown == true) {
       document.getElementById('image-slider-container')!.scrollLeft = (event.clientX);
     }
   }
 
-  mouseInSlider(event: MouseEvent) {
+  public mouseInSlider(event: MouseEvent) {
     const targetElement: EventTarget | null = event.target;
 
     if (targetElement instanceof Element
@@ -175,7 +185,7 @@ export class PropertieComponent implements OnInit {
     }
   }
 
-  toUpperFirstLetter(src: string) {
+  public toUpperFirstLetter(src: string) {
     let firstLetter: string = src.slice(0, 1).toUpperCase();
     let wihtOutFirstLetter: string = src.slice(1, src.length);
 

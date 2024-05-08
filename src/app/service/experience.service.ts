@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase'
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { ExperienceModel } from '../models/experience.model';
 
 const pb = new PocketBase(environment.POCKETBASE_URL);

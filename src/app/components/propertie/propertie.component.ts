@@ -4,7 +4,7 @@ import { PropertieModel } from 'src/app/models/propertie.model';
 import { PropertieService } from 'src/app/service/propertie.service';
 import { Loader } from '@googlemaps/js-api-loader';
 import { GeocodingApiService } from 'src/app/service/geocoding-api.service';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.development';
 import { GeocodingModel } from 'src/app/models/geocoding';
 
 @Component({
@@ -22,7 +22,7 @@ export class PropertieComponent implements OnInit {
   PropertieService = inject(PropertieService);
 
   loader = new Loader({
-    apiKey: process.env?.['MAPSJS_API_KEY']!,
+    apiKey: environment.MAPSJS_API_KEY,
     version: "weekly"
   });
 

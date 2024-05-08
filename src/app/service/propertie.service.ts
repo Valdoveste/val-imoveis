@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { PropertieModel } from '../models/propertie.model';
 import { Observable, from } from 'rxjs';
 
-const pb = new PocketBase(environment.POCKETBASE_URL);
+const pb = new PocketBase(process.env?.['POCKETBASE_URL']);
 
 @Injectable({
   providedIn: 'root'

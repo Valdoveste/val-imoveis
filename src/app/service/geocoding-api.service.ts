@@ -4,8 +4,8 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { GeocodingModel } from '../models/geocoding';
 
-const GEOCODING_URL: String = environment.GEOCODING_URL;
-const GEOCODING_API_KEY: String = environment.GEOCODING_API_KEY;
+const GEOCODING_URL: string | undefined = process.env?.['GEOCODING_URL'];
+const GEOCODING_API_KEY: string | undefined = process.env?.['GEOCODING_API_KEY'];
 
 @Injectable({
   providedIn: 'root'

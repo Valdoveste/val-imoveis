@@ -19,12 +19,12 @@ export class PropertieComponent implements OnInit {
     private geoCodingService: GeocodingApiService,
   ) { }
 
+  PropertieService = inject(PropertieService);
+
   loader = new Loader({
-    apiKey: environment.MAPSJS_API_KEY,
+    apiKey: process.env?.['MAPSJS_API_KEY']!,
     version: "weekly"
   });
-
-  PropertieService = inject(PropertieService);
 
   properties: PropertieModel =
     {
@@ -63,6 +63,7 @@ export class PropertieComponent implements OnInit {
     };
 
   ngOnInit() {
+
     this.getPropertie();
 
     const timer = setInterval(() => {

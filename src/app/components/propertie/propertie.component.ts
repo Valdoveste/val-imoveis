@@ -66,6 +66,21 @@ export class PropertieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPropertie();
+    const timer = setInterval(() => {
+      let streetOutput = this.replaceSpacesInStreetString([
+        this.properties.endereco + ", " +
+        this.properties.endereco_numero.toString() + " - " +
+        this.properties.endereco_bairro + ", " +
+        this.properties.endereco_cidade + " - " +
+        this.properties.endereco_estado + "," +
+        this.properties.endereco_cep
+      ]);
+
+      this.getGeocoding(streetOutput)
+
+      clearInterval(timer)
+    }, 1000);
+  }
   private getGeocoding(streetOutput: String) {
     this.geoCodingService.getLocationLatLng(streetOutput).subscribe({
       next: (response: GeocodingModel) => {

@@ -11,6 +11,9 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { PropertiesComponent } from './components/properties/properties.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { GoogleMap } from '@angular/google-maps';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
     AppRoutingModule,
     NgxMaskDirective,
     NgxMaskPipe,
+    GoogleMapsModule,
+    GoogleMap,
+    HttpClientModule
   ],
   providers: [provideNgxMask()],
   bootstrap: [AppComponent]

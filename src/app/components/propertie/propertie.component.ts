@@ -1,9 +1,11 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 import { PropertieModel } from 'src/app/models/propertie.model';
 import { PropertieService } from 'src/app/service/propertie.service';
-import { retryWhen } from 'rxjs';
+import { Loader } from '@googlemaps/js-api-loader';
+import { GeocodingApiService } from 'src/app/service/geocoding-api.service';
+import { environment } from 'src/environments/environment.development';
+import { GeocodingModel } from 'src/app/models/geocoding';
 
 @Component({
   selector: 'app-propertie',
@@ -11,17 +13,18 @@ import { retryWhen } from 'rxjs';
   styleUrls: ['./propertie.component.scss']
 })
 export class PropertieComponent implements OnInit {
-
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
+    private geoCodingService: GeocodingApiService,
   ) { }
 
   PropertieService = inject(PropertieService);
 
-  isMouseDown: boolean = false;
-
-  isMouseInSlider: boolean = false;
+  loader = new Loader({
+    apiKey: environment.MAPSJS_API_KEY,
+    version: "weekly"
+  });
 
   properties: PropertieModel =
     {
@@ -59,20 +62,83 @@ export class PropertieComponent implements OnInit {
       caracteristicas: []
     };
 
-  ngOnInit(): void {
+  ngOnInit() {
+
     this.getPropertie();
+
+    const timer = setInterval(() => {
+      let streetOutput = this.replaceSpacesInStreetString([
+        this.properties.endereco + ", " +
+        this.properties.endereco_numero.toString() + " - " +
+        this.properties.endereco_bairro + ", " +
+        this.properties.endereco_cidade + " - " +
+        this.properties.endereco_estado + "," +
+        this.properties.endereco_cep
+      ]);
+
+      this.getGeocoding(streetOutput)
+
+      clearInterval(timer)
+    }, 1000);
   }
 
-  scroll(route: string) {
-    this.router.navigate([route]).then((e) => {
-      document.getElementById(route)!.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-        inline: "nearest"
-      });
+  // Google Maps
+
+  private getGeocoding(streetOutput: String) {
+    this.geoCodingService.getLocationLatLng(streetOutput).subscribe({
+      next: (response: GeocodingModel) => {
+        this.loadGoogelMaps(
+          response.results[0].geometry.location.lat,
+          response.results[0].geometry.location.lng
+        )
+      },
+      error: (err) => console.log(err)
     })
-
   }
+
+  marker!: google.maps.Marker;
+
+  private loadGoogelMaps(lat: number, lng: number) {
+    const locationCords = { lat: lat, lng: lng }
+
+    const mapOptions = {
+      center: locationCords,
+      zoom: 18,
+    }
+
+    this.loader.load().then(async () => {
+      const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+
+      let map = new Map(document.getElementById("map") as HTMLElement, mapOptions);
+
+      new google.maps.Marker({
+        position: locationCords,
+        map,
+        title:
+          this.toUpperFirstLetter(this.properties.imovel)
+          + " - " +
+          this.properties.endereco_bairro
+      });
+
+    });
+  }
+
+  private joinsTheStreetStrings(street_str: String[]): String {
+    let joined_street_str = "";
+
+    street_str.forEach(ele => (joined_street_str += ele));
+
+    return joined_street_str;
+  }
+
+  private replaceSpacesInStreetString(street_str: String[]): String {
+    let joined_street_str = this.joinsTheStreetStrings(street_str);
+
+    return joined_street_str.replaceAll(' ', '+');
+  }
+
+
+  // Propetie info
 
   public getRouteID() {
     let id!: string | null;
@@ -87,26 +153,29 @@ export class PropertieComponent implements OnInit {
     const collectionID = this.getRouteID();
 
     if (collectionID) {
-      try {
-        this.PropertieService.getPropertie(collectionID).subscribe({
-          next: (response) => {
+      this.PropertieService.getPropertie(collectionID)
+        .subscribe({
+          next: (response: PropertieModel) => {
             this.properties = response;
           },
-          error: (err: HttpErrorResponse) => console.log(err)
-        })
-      } catch (err) {
-        console.log(err)
-      }
+          error: (err) => { console.log(err) }
+        });
     }
   }
 
-  mouseMoveListener(event: MouseEvent) {
+  // Image Slider
+
+  isMouseDown: boolean = false;
+
+  isMouseInSlider: boolean = false;
+
+  public mouseMoveListener(event: MouseEvent) {
     if (this.isMouseDown == true) {
       document.getElementById('image-slider-container')!.scrollLeft = (event.clientX);
     }
   }
 
-  mouseInSlider(event: MouseEvent) {
+  public mouseInSlider(event: MouseEvent) {
     const targetElement: EventTarget | null = event.target;
 
     if (targetElement instanceof Element
@@ -117,11 +186,20 @@ export class PropertieComponent implements OnInit {
     }
   }
 
-  toUpperFirstLetter(src: string) {
+  public toUpperFirstLetter(src: string) {
     let firstLetter: string = src.slice(0, 1).toUpperCase();
     let wihtOutFirstLetter: string = src.slice(1, src.length);
 
     return (firstLetter += wihtOutFirstLetter)
   }
 
+  public scroll(router: string) {
+    this.router.navigate([router]).then((e) => {
+      document.getElementById(router)!.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest"
+      });
+    })
+  }
 }

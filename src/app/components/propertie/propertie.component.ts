@@ -77,6 +77,32 @@ export class PropertieComponent implements OnInit {
       error: (err) => console.log(err)
     })
   }
+  marker!: google.maps.Marker;
+
+  private loadGoogelMaps(lat: number, lng: number) {
+    const locationCords = { lat: lat, lng: lng }
+
+    const mapOptions = {
+      center: locationCords,
+      zoom: 18,
+    }
+
+    this.loader.load().then(async () => {
+      const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+
+      let map = new Map(document.getElementById("map") as HTMLElement, mapOptions);
+
+      new google.maps.Marker({
+        position: locationCords,
+        map,
+        title:
+          this.toUpperFirstLetter(this.properties.imovel)
+          + " - " +
+          this.properties.endereco_bairro
+      });
+
+    });
+  }
   private joinsTheStreetStrings(street_str: String[]): String {
     let joined_street_str = "";
 

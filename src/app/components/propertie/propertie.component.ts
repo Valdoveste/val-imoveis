@@ -66,6 +66,17 @@ export class PropertieComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPropertie();
+  private getGeocoding(streetOutput: String) {
+    this.geoCodingService.getLocationLatLng(streetOutput).subscribe({
+      next: (response: GeocodingModel) => {
+        this.loadGoogelMaps(
+          response.results[0].geometry.location.lat,
+          response.results[0].geometry.location.lng
+        )
+      },
+      error: (err) => console.log(err)
+    })
+  }
   private joinsTheStreetStrings(street_str: String[]): String {
     let joined_street_str = "";
 

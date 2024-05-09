@@ -14,6 +14,7 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { GoogleMap } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     NgxMaskDirective,
     NgxMaskPipe,

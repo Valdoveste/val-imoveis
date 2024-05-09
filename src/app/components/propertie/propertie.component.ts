@@ -62,25 +62,33 @@ export class PropertieComponent implements OnInit {
       caracteristicas: []
     };
 
-  ngOnInit() {
+  whatsAppText = ``;
 
+  ngOnInit() {
     this.getPropertie();
 
     const timer = setInterval(() => {
-      let streetOutput = this.replaceSpacesInStreetString([
+      let streetOutput = this.replaceSpacesInString([
         this.properties.endereco + ", " +
         this.properties.endereco_numero.toString() + " - " +
         this.properties.endereco_bairro + ", " +
         this.properties.endereco_cidade + " - " +
         this.properties.endereco_estado + "," +
         this.properties.endereco_cep
-      ]);
+      ], '+'
+      );
 
       this.getGeocoding(streetOutput)
 
+      this.whatsAppText
+        = `Olá Val, tudo bem? Gostaria de obter mais informações referente ao ${this.properties.imovel} - ${this.properties.endereco_bairro}. Estaria disponível para conversarmos?`
       clearInterval(timer)
     }, 1000);
   }
+
+  // WhatsApp Msg Sender 
+
+  sentWhatsAppMsg() { window.open(('https://wa.me/+5511966551264?text=' + this.replaceSpacesInString([this.whatsAppText], '%20')), "_blank") }
 
   // Google Maps
 
@@ -123,7 +131,7 @@ export class PropertieComponent implements OnInit {
     });
   }
 
-  private joinsTheStreetStrings(street_str: String[]): String {
+  private joinsTheStreetStrings(street_str: String[]): String | string {
     let joined_street_str = "";
 
     street_str.forEach(ele => (joined_street_str += ele));
@@ -131,12 +139,11 @@ export class PropertieComponent implements OnInit {
     return joined_street_str;
   }
 
-  private replaceSpacesInStreetString(street_str: String[]): String {
+  private replaceSpacesInString(street_str: String[], replaceTo: string): String {
     let joined_street_str = this.joinsTheStreetStrings(street_str);
 
-    return joined_street_str.replaceAll(' ', '+');
+    return joined_street_str.replaceAll(' ', replaceTo);
   }
-
 
   // Propetie info
 

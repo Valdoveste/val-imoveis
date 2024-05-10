@@ -19,7 +19,18 @@ export class PropertieComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private geoCodingService: GeocodingApiService,
     private metaService: Meta
-  ) { }
+  ) {
+
+    this.metaService.updateTag(
+      { name: 'twitter:title', content: 'abc' },
+      `name='twitter:title'`
+    );
+
+    this.metaService.updateTag(
+      { name: 'description', content: 'dfg' },
+      `name='description'`
+    );
+   }
 
   PropertieService = inject(PropertieService);
 

@@ -122,7 +122,7 @@ export class PropertieComponent implements OnInit {
       ], '+'
       );
 
-      this.getGeocoding(streetOutput)
+      // this.getGeocoding(streetOutput)
 
       this.teste([this.properties.imovel, this.properties.endereco_bairro, this.properties.desc_imovel_simple]);
 

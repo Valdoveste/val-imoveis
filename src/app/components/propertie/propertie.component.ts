@@ -19,18 +19,7 @@ export class PropertieComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private geoCodingService: GeocodingApiService,
     private metaService: Meta
-  ) {
-
-    this.metaService.updateTag(
-      { name: 'twitter:title', content: 'abc' },
-      `name='twitter:title'`
-    );
-
-    this.metaService.updateTag(
-      { name: 'description', content: 'dfg' },
-      `name='description'`
-    );
-   }
+  ) { }
 
   PropertieService = inject(PropertieService);
 
@@ -75,37 +64,6 @@ export class PropertieComponent implements OnInit {
       caracteristicas: []
     };
 
-  teste(vamos: string[]) {
-    this.metaService.updateTag(
-      { name: 'twitter:title', content: vamos[0] + ' - ' + vamos[1] },
-      `name='twitter:title'`
-    );
-
-    this.metaService.updateTag(
-      { name: 'description', content: vamos[2] },
-      `name='description'`
-    );
-
-  }
-
-  // <meta name="description"
-  //   content="Val Imóveis experiente corretora atuante no mercado imobiliário desde 2010, especializada em documentação, aprovação de financiamento e registro tanto Creci 120.862 quanto CNAI 37741, perícia e avaliação imobiliária. Colaborando com construtoras renomadas como Diálogo, Lorenzini, Cyrela, Evem e Econ Construtora." />
-  // <meta name="author" content="valdoveste.com.br" />
-  // <meta name="keywords"
-  //   content="Corretora, Corretora Imóveis, Venda, Venda Aparamento, Alugel, Alugel Apartamento, Creci 120.862, CNAI 37741, Especialista Imobiliária, perícia e avaliação imobiliária" />
-
-  // <meta property="og:title" content="Val Imóveis - Especialista Imobiliária" />
-  // <meta property="og:image" content="https://i.imgur.com/RQXvZGj.png" />
-  // <meta property="og:url" content="https://val-imoveis.vercel.app/" />
-  // <meta property="og:site_name" content="Val Imóveis - Especialista Imobiliária" />
-  // <meta property="og:description"
-  //   content="Val Imóveis experiente corretora atuante no mercado imobiliário desde 2010, especializada em documentação, aprovação de financiamento e registro tanto Creci 120.862 quanto CNAI 37741, perícia e avaliação imobiliária. Colaborando com construtoras renomadas como Diálogo, Lorenzini, Cyrela, Evem e Econ Construtora." />
-
-  // <meta name="twitter:title" content="Val Imóveis - Especialista Imobiliária" />
-  // <meta name="twitter:image" content="https://i.imgur.com/RQXvZGj.png" />
-  // <meta name="twitter:url" content="https://val-imoveis.vercel.app/" />
-  // <meta name="twitter:card" content="summary" />
-
   whatsAppText = ``;
 
   ngOnInit() {
@@ -122,9 +80,7 @@ export class PropertieComponent implements OnInit {
       ], '+'
       );
 
-      // this.getGeocoding(streetOutput)
-
-      this.teste([this.properties.imovel, this.properties.endereco_bairro, this.properties.desc_imovel_simple]);
+      this.getGeocoding(streetOutput)
 
       this.whatsAppText
         = `Olá Val, tudo bem? Gostaria de obter mais informações referente ao ${this.properties.imovel} - ${this.properties.endereco_bairro}. Estaria disponível para conversarmos?`

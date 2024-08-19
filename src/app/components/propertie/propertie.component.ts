@@ -17,8 +17,7 @@ export class PropertieComponent implements OnInit {
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private geoCodingService: GeocodingApiService,
-    private metaService: Meta
+    private geoCodingService: GeocodingApiService
   ) { }
 
   PropertieService = inject(PropertieService);
@@ -106,7 +105,7 @@ export class PropertieComponent implements OnInit {
     })
   }
 
-  marker!: google.maps.Marker;
+  marker!: google.maps.marker.AdvancedMarkerElement;
 
   private loadGoogelMaps(lat: number, lng: number) {
     const locationCords = { lat: lat, lng: lng }

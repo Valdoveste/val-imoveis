@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /home
+Allow: /imoveis
+Allow: /construtoras
+Allow: /contato
+Allow: /imovel-detalhes
+
+Sitemap: https://www.val-imoveis7.com.br/sitemap.xml

@@ -41,10 +41,10 @@
   (mouseenter)="mouseInSlider($event)" (mouseleave)="mouseInSlider($event)"
   [ngClass]="{'cursor-pointer': isMouseInSlider && isMouseDown}" id="image-slider-container" class="slider-container"
   style="margin-top: 62px;">
-  <img draggable="false" unselectable="on"
+  <img draggable="false" unselectable="on" loading="lazy"
     src="https://val-imoveis.pockethost.io/api/files/{{properties.collectionId}}/{{properties.id}}/{{properties.foto_principal}}">
 
-  <img *ngFor="let foto of properties.fotos" draggable="false" unselectable="on"
+  <img *ngFor="let foto of properties.fotos" draggable="false" unselectable="on" loading="lazy"
     src="https://val-imoveis.pockethost.io/api/files/{{properties.collectionId}}/{{properties.id}}/{{foto}}">
 </div>
 

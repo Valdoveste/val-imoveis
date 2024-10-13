@@ -11,7 +11,7 @@
     <div class="row">
       <div class="col-md-4 animate-box" *ngFor="let propertiesItem of properties">
         <div class="property">
-          <a class="fh5co-property" [routerLink]="['imovel-detalhes', propertiesItem.id]"
+          <a class="fh5co-property" [routerLink]="['imovel-detalhes', propertiesItem.id]" loading="lazy"
             style="background-image: url(https://val-imoveis.pockethost.io/api/files/{{propertiesItem.collectionId}}/{{propertiesItem.id}}/{{propertiesItem.foto_principal}});">
             <span class="status">{{propertiesItem.status_imovel}}</span>
             <ul class="list-details">

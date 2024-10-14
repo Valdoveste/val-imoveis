@@ -23,6 +23,8 @@ export class PropertieComponent implements OnInit {
     private metadataService: Meta
   ) { }
 
+  pb = new PocketBase(environment.POCKETBASE_URL);
+
   PropertieService = inject(PropertieService);
 
   loader = new Loader({
@@ -165,9 +167,8 @@ export class PropertieComponent implements OnInit {
   }
 
   private async setMetadataForPropertie(propertie: PropertieModel) {
-    const pb = new PocketBase(environment.POCKETBASE_URL);
 
-    const record = await pb.collection('Propertie').getOne(propertie.id);
+    const record = await this.pb.collection('Propertie').getOne(propertie.id);
 
     this.titleService.setTitle((propertie.imovel + " - " + propertie.endereco_bairro));
 
@@ -200,7 +201,7 @@ export class PropertieComponent implements OnInit {
 
             this.collectStreetFromPropetie(this.properties);
 
-            // this.setMetadataForPropertie(this.properties);
+            this.setMetadataForPropertie(this.properties);
 
             this.whatsAppText
               = `Olá Val, tudo bem? Gostaria de obter mais informações referente ao ${this.properties.imovel} - ${this.properties.endereco_bairro}. Estaria disponível para conversarmos? 

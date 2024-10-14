@@ -68,27 +68,7 @@ export class PropertieComponent implements OnInit {
 
   whatsAppText = ``;
 
-  ngOnInit() {
-    this.getPropertie();
-
-    const timer = setInterval(() => {
-      let streetOutput = this.replaceSpacesInString([
-        this.properties.endereco + ", " +
-        this.properties.endereco_numero.toString() + " - " +
-        this.properties.endereco_bairro + ", " +
-        this.properties.endereco_cidade + " - " +
-        this.properties.endereco_estado + "," +
-        this.properties.endereco_cep
-      ], '+'
-      );
-
-      this.getGeocoding(streetOutput)
-
-      this.whatsAppText
-        = `Olá Val, tudo bem? Gostaria de obter mais informações referente ao ${this.properties.imovel} - ${this.properties.endereco_bairro}. Estaria disponível para conversarmos?`
-      clearInterval(timer)
-    }, 1000);
-  }
+  ngOnInit = () => this.getPropertie()
 
   // WhatsApp Msg Sender 
 

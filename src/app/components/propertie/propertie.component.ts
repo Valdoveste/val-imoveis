@@ -169,12 +169,25 @@ export class PropertieComponent implements OnInit {
 
     const record = await pb.collection('Propertie').getOne(propertie.id);
 
-    this.titleService.setTitle((propertie.imovel + propertie.endereco_bairro));
+    this.titleService.setTitle((propertie.imovel + " - " + propertie.endereco_bairro));
+
     this.metadataService.updateTag({ name: 'description', content: propertie.desc_imovel_completa });
-    this.metadataService.updateTag({ property: 'og:title', content: propertie.imovel });
-    this.metadataService.updateTag({ property: 'og:description', content: propertie.desc_imovel_simple });
-    this.metadataService.updateTag({ property: 'og:url', content: window.location.href });
-    this.metadataService.updateTag({ property: 'og:image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
+
+    this.metadataService.updateTag({ name: 'title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
+    this.metadataService.updateTag({ name: 'description', content: propertie.desc_imovel_simple });
+    this.metadataService.updateTag({ name: 'url', content: window.location.href });
+    this.metadataService.updateTag({ name: 'image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
+
+    this.metadataService.updateTag({ name: 'og:title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
+    this.metadataService.updateTag({ name: 'og:image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
+    this.metadataService.updateTag({ name: 'og:url', content: window.location.href });
+    this.metadataService.updateTag({ name: 'og:description', content: propertie.desc_imovel_simple });
+    
+
+    this.metadataService.updateTag({ name: 'twitter:title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
+    this.metadataService.updateTag({ name: 'twitter:description', content: propertie.desc_imovel_simple });
+    this.metadataService.updateTag({ name: 'twitter:url', content: window.location.href });
+    this.metadataService.updateTag({ name: 'twitter:image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
   }
 
   private getPropertie() {

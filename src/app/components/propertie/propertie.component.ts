@@ -6,7 +6,8 @@ import { Loader } from '@googlemaps/js-api-loader';
 import { GeocodingApiService } from 'src/app/service/geocoding-api.service';
 import { environment } from 'src/environments/environment.development';
 import { GeocodingModel } from 'src/app/models/geocoding';
-import { Meta } from '@angular/platform-browser'
+import { Title, Meta } from '@angular/platform-browser';
+import PocketBase from 'pocketbase';
 
 @Component({
   selector: 'app-propertie',
@@ -17,7 +18,9 @@ export class PropertieComponent implements OnInit {
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private geoCodingService: GeocodingApiService
+    private geoCodingService: GeocodingApiService,
+    private titleService: Title,
+    private metadataService: Meta
   ) { }
 
   PropertieService = inject(PropertieService);

@@ -72,7 +72,16 @@ export class PropertieComponent implements OnInit {
 
   // WhatsApp Msg Sender 
 
-  sentWhatsAppMsg() { window.open(('https://wa.me/+5511966551264?text=' + this.replaceSpacesInString([this.whatsAppText], '%20')), "_blank") }
+  sentWhatsAppMsg() {
+    window.open(
+      (
+        'https://wa.me/+5511966551264?text=' +
+        this.replaceSpacesInString(
+          [this.whatsAppText + window.location.href], '%20'
+        )
+      ), "_blank"
+    )
+  }
 
   // Google Maps
 

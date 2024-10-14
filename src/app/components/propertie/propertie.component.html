@@ -264,8 +264,7 @@
                 .replace('.',',')
                 |
                 mask: 'separator.2': {thousandSeparator: '.'}
-                }}
-                <!-- <span *ngIf="!properties.valor_aluguel.toString().includes('.')">,00</span> -->
+                }}<span *ngIf="!properties.valor_aluguel.toString().includes('.')">,00</span>
 
               </p>
             </ng-container>
@@ -276,8 +275,7 @@
                 .replace('.',',')
                 |
                 mask: 'separator.2': {thousandSeparator: '.'}
-                }}
-                <!-- <span *ngIf="!properties.valor_venda_imovel.toString().includes('.')">,00</span> -->
+                }}<span *ngIf="!properties.valor_venda_imovel.toString().includes('.')">,00</span>
               </p>
             </ng-template>
           </li>
@@ -287,8 +285,7 @@
               .replace('.',',')
               |
               mask: 'separator.2': {thousandSeparator: '.'}
-              }}
-              <!-- <span *ngIf="!properties.valor_condominio.toString().includes('.')">,00</span> -->
+              }}<span *ngIf="!properties.valor_condominio.toString().includes('.')">,00</span>
             </p>
           </li>
           <li class="property-costs-item">
@@ -297,8 +294,7 @@
               .replace('.',',')
               |
               mask: 'separator.2': {thousandSeparator: '.'}
-              }}
-              <!-- <span *ngIf="!properties.valor_iptu.toString().includes('.')">,00</span> -->
+              }}<span *ngIf="!properties.valor_iptu.toString().includes('.')">,00</span>
             </p>
           </li>
           <li class="border-top property-costs-item py-2">
@@ -309,7 +305,7 @@
               +
               (properties.status_imovel == 'Aluguel' ? properties.valor_aluguel : properties.valor_venda_imovel))
               .toString().replace('.',',') | mask: 'separator.2': {thousandSeparator: '.'}
-              }}
+              }}<span *ngIf="!properties.valor_venda_imovel.toString().includes('.')">,00</span>
             </p>
           </li>
         </ul>

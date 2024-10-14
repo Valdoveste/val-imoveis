@@ -88,6 +88,21 @@ export class PropertieComponent implements OnInit {
     })
   }
 
+  private collectStreetFromPropetie(propertie: PropertieModel) {
+
+    let streetOutput = this.replaceSpacesInString(
+      [
+        propertie.endereco + ", " +
+        propertie.endereco_numero.toString() + " - " +
+        propertie.endereco_bairro + ", " +
+        propertie.endereco_cidade + " - " +
+        propertie.endereco_estado + "," +
+        propertie.endereco_cep
+      ], '+');
+
+    this.getGeocoding(streetOutput);
+  }
+
   marker!: google.maps.marker.AdvancedMarkerElement;
 
   private loadGoogelMaps(lat: number, lng: number) {

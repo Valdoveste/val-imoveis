@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta, Title } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -38,7 +38,7 @@ import { FormsModule } from '@angular/forms';
     GoogleMap,
     HttpClientModule
   ],
-  providers: [provideNgxMask()],
+  providers: [provideNgxMask(), Title, Meta],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

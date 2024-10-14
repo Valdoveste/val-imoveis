@@ -185,6 +185,14 @@ export class PropertieComponent implements OnInit {
         .subscribe({
           next: (response: PropertieModel) => {
             this.properties = response;
+
+            this.collectStreetFromPropetie(this.properties);
+
+            this.setMetadataForPropertie(this.properties);
+
+            this.whatsAppText
+              = `Olá Val, tudo bem? Gostaria de obter mais informações referente ao ${this.properties.imovel} - ${this.properties.endereco_bairro}. Estaria disponível para conversarmos? 
+              `
           },
           error: (err) => { console.log(err) }
         });

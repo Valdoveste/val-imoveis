@@ -164,6 +164,19 @@ export class PropertieComponent implements OnInit {
     return id;
   }
 
+  private async setMetadataForPropertie(propertie: PropertieModel) {
+    const pb = new PocketBase(environment.POCKETBASE_URL);
+
+    const record = await pb.collection('Propertie').getOne(propertie.id);
+
+    this.titleService.setTitle((propertie.imovel + propertie.endereco_bairro));
+    this.metadataService.updateTag({ name: 'description', content: propertie.desc_imovel_completa });
+    this.metadataService.updateTag({ property: 'og:title', content: propertie.imovel });
+    this.metadataService.updateTag({ property: 'og:description', content: propertie.desc_imovel_simple });
+    this.metadataService.updateTag({ property: 'og:url', content: window.location.href });
+    this.metadataService.updateTag({ property: 'og:image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
+  }
+
   private getPropertie() {
     const collectionID = this.getRouteID();
 

@@ -7,7 +7,7 @@ import { GeocodingApiService } from 'src/app/service/geocoding-api.service';
 import { environment } from 'src/environments/environment.development';
 import { GeocodingModel } from 'src/app/models/geocoding';
 import { Title, Meta } from '@angular/platform-browser';
-import PocketBase from 'pocketbase';
+// import PocketBase from 'pocketbase';
 
 @Component({
   selector: 'app-propertie',
@@ -23,7 +23,7 @@ export class PropertieComponent implements OnInit {
     private metadataService: Meta
   ) { }
 
-  pb = new PocketBase(environment.POCKETBASE_URL);
+  // pb = new PocketBase(environment.POCKETBASE_URL);
 
   PropertieService = inject(PropertieService);
 
@@ -166,29 +166,29 @@ export class PropertieComponent implements OnInit {
     return id;
   }
 
-  private async setMetadataForPropertie(propertie: PropertieModel) {
+  // private async setMetadataForPropertie(propertie: PropertieModel) {
 
-    const record = await this.pb.collection('Propertie').getOne(propertie.id);
+  //   const record = await this.pb.collection('Propertie').getOne(propertie.id);
 
-    this.titleService.setTitle((propertie.imovel + " - " + propertie.endereco_bairro));
+  //   this.titleService.setTitle((propertie.imovel + " - " + propertie.endereco_bairro));
 
-    this.metadataService.updateTag({ name: 'title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
+  //   this.metadataService.updateTag({ name: 'title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
 
-    this.metadataService.updateTag({ name: 'description', content: propertie.desc_imovel_completa });
-    this.metadataService.updateTag({ name: 'description', content: propertie.desc_imovel_simple });
-    this.metadataService.updateTag({ name: 'url', content: window.location.href });
-    this.metadataService.updateTag({ name: 'image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
+  //   this.metadataService.updateTag({ name: 'description', content: propertie.desc_imovel_completa });
+  //   this.metadataService.updateTag({ name: 'description', content: propertie.desc_imovel_simple });
+  //   this.metadataService.updateTag({ name: 'url', content: window.location.href });
+  //   this.metadataService.updateTag({ name: 'image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
 
-    this.metadataService.updateTag({ name: 'og:title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
-    this.metadataService.updateTag({ name: 'og:image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
-    this.metadataService.updateTag({ name: 'og:url', content: window.location.href });
-    this.metadataService.updateTag({ name: 'og:description', content: propertie.desc_imovel_simple });
+  //   this.metadataService.updateTag({ name: 'og:title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
+  //   this.metadataService.updateTag({ name: 'og:image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
+  //   this.metadataService.updateTag({ name: 'og:url', content: window.location.href });
+  //   this.metadataService.updateTag({ name: 'og:description', content: propertie.desc_imovel_simple });
 
-    this.metadataService.updateTag({ name: 'twitter:title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
-    this.metadataService.updateTag({ name: 'twitter:image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
-    this.metadataService.updateTag({ name: 'twitter:url', content: window.location.href });
-    this.metadataService.updateTag({ name: 'twitter:description', content: propertie.desc_imovel_completa });
-  }
+  //   this.metadataService.updateTag({ name: 'twitter:title', content: (propertie.imovel + " - " + propertie.endereco_bairro) });
+  //   this.metadataService.updateTag({ name: 'twitter:image', content: (environment.POCKETBASE_URL + "/api/files/" + propertie.collectionId + "/" + propertie.id + "/" + record['foto_principal']) });
+  //   this.metadataService.updateTag({ name: 'twitter:url', content: window.location.href });
+  //   this.metadataService.updateTag({ name: 'twitter:description', content: propertie.desc_imovel_completa });
+  // }
 
   private getPropertie() {
     const collectionID = this.getRouteID();
@@ -201,7 +201,7 @@ export class PropertieComponent implements OnInit {
 
             this.collectStreetFromPropetie(this.properties);
 
-            this.setMetadataForPropertie(this.properties);
+            // this.setMetadataForPropertie(this.properties);
 
             this.whatsAppText
               = `Olá Val, tudo bem? Gostaria de obter mais informações referente ao ${this.properties.imovel} - ${this.properties.endereco_bairro}. Estaria disponível para conversarmos? 

@@ -15,7 +15,7 @@
             style="background-image: url(https://val-imoveis.pockethost.io/api/files/{{propertiesItem.collectionId}}/{{propertiesItem.id}}/{{propertiesItem.foto_principal}});">
             <span class="status">{{propertiesItem.status_imovel}}</span>
             <ul class="list-details">
-              <li>{{propertiesItem.numero_metragem}}m2
+              <li>{{propertiesItem.numero_metragem}}m²
               <li>
               <li>{{propertiesItem.qtd_dormitorio}} Dormitórios</li>
               <li>{{propertiesItem.qtd_banheiro}} Banheiros</li>
@@ -32,7 +32,7 @@
               |
               mask: 'separator.2': {thousandSeparator: '.'}
               }}<span *ngIf="!propertiesItem.valor_venda_imovel.toString().includes('.')">,00</span></span>
-            <p>{{propertiesItem.desc_imovel_simple}}</p>
+            <p style="min-height: 85px;">{{propertiesItem.desc_imovel_simple}}</p>
             <span class="address">
               <a target="blank_" [href]="'https://www.google.com/search?q=' 
                 + propertiesItem.endereco + ' ' 

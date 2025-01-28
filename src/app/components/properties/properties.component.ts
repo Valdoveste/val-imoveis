@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { flatMap } from 'rxjs';
 import { PropertieService } from 'src/app/service/propertie.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { PropertieService } from 'src/app/service/propertie.service';
 })
 export class PropertiesComponent implements OnInit {
   properties!: any;
+  showNoPropertiesHeader: boolean = false;
 
   PropertieService = inject(PropertieService);
 
@@ -25,7 +27,13 @@ export class PropertiesComponent implements OnInit {
   }
 
   updateProperties(event: any) {
-    this.properties = event;
+    if (event.length != 0) {
+      this.properties = event;
+      this.showNoPropertiesHeader = false;
+    } else {
+      this.properties = [];
+      this.showNoPropertiesHeader = true;
+    }
   }
 
   toUpperFirstLetter(src: string) {

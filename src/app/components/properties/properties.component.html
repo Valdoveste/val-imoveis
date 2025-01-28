@@ -13,6 +13,9 @@
       [propertiesInfo]="properties"></app-propertie-searchbar>
 
     <div class="row">
+      <h2 *ngIf="(showNoPropertiesHeader)" class="lg-font-size text-center">
+        Não foi possível encontrar imóveis com os filtros de busca selecionados.
+      </h2>
       <div class="col-md-4 animate-box" *ngFor="let propertiesItem of properties">
         <div class="property">
           <a class="fh5co-property" [routerLink]="['imovel-detalhes', propertiesItem.id]" loading="lazy"

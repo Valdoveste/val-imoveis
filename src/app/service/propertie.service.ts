@@ -13,6 +13,14 @@ export class PropertieService {
 
   constructor() { }
 
+  async getPropertieBySearchParameters(searchParameters: string | undefined): Promise<PropertieModel[]> {
+    const recordsProperties: PropertieModel[] = await pb.collection('Propertie').getFullList({
+      filter: searchParameters,
+    });
+
+    return recordsProperties;
+  }
+
   async getAllPropertie(): Promise<PropertieModel[]> {
     const recordsProperties: PropertieModel[] = await pb.collection('Propertie').getFullList({
       sort: '-created',
@@ -21,9 +29,10 @@ export class PropertieService {
     return recordsProperties;
   }
 
-  getPropertie(propertieID: string): Observable<PropertieModel> {
+  getPropertieByID(propertieID: string): Observable<PropertieModel> {
     const promise: Promise<PropertieModel> = pb.collection('Propertie').getOne(propertieID);
 
     return from(promise);
   }
+
 }

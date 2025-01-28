@@ -127,11 +127,11 @@
 
               <p>
                 <ng-container *ngIf="properties.qtd_banheiro > 1;">
-                  {{properties.qtd_banheiro}} <span>Vagas</span>
+                  {{properties.qtd_banheiro}} <span>Banheiros</span>
                 </ng-container>
 
                 <ng-container *ngIf="properties.qtd_banheiro == 1;">
-                  {{properties.qtd_banheiro}} <span>Vaga</span>
+                  {{properties.qtd_banheiro}} <span>Banheiro</span>
                 </ng-container>
 
                 <ng-container *ngIf="properties.qtd_banheiro == 0;">
@@ -240,9 +240,9 @@
               </svg>
               <p>
                 <span *ngIf="properties.aceita_fgts || properties.aceita_financimento">Aceita </span>
-                <span *ngIf="properties.aceita_fgts">financiamento</span>
+                <span *ngIf="properties.aceita_financimento">financiamento</span>
                 <span *ngIf="properties.aceita_fgts && properties.aceita_financimento"> e </span>
-                <span *ngIf="properties.aceita_financimento">FTGS</span>
+                <span *ngIf="properties.aceita_fgts">FTGS</span>
                 <span *ngIf="!properties.aceita_fgts && !properties.aceita_financimento"> - </span>
               </p>
             </li>

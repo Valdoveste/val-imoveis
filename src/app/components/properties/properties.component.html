@@ -8,6 +8,10 @@
           características únicas e potencialidades.</p>
       </div>
     </div>
+
+    <app-propertie-searchbar (eventSearchProperties)="updateProperties($event)"
+      [propertiesInfo]="properties"></app-propertie-searchbar>
+
     <div class="row">
       <div class="col-md-4 animate-box" *ngFor="let propertiesItem of properties">
         <div class="property">
@@ -23,7 +27,9 @@
             </ul>
           </a>
           <div class="property-details">
-            <h3 class="mg-font-size">{{toUpperFirstLetter(propertiesItem.imovel)}} - {{propertiesItem.endereco_bairro}}</h3>
+            <h3 class="mg-font-size">
+              {{toUpperFirstLetter(propertiesItem.imovel)}} - {{propertiesItem.endereco_bairro}}
+            </h3>
             <span class="price sm-font-size">R$ {{
               (propertiesItem.status_imovel == 'Aluguel' ? propertiesItem.valor_aluguel :
               propertiesItem.valor_venda_imovel)

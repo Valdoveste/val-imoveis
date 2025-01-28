@@ -2,3 +2,57 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+:host ::ng-deep {
+
+    $disable-background-color: #eceeef;
+
+    .multiselect-dropdown {
+        margin: 0 0 5px 0 !important;
+        background-color: #fff !important;
+
+        .dropdown-btn .selected-item {
+            max-width: none !important;
+            width: fit-content !important;
+            background: #547e6d !important;
+            border: 1px solid #547e6d !important;
+            padding-right: 0 !important;
+
+            a {
+                padding: 0 8px !important;
+                font-weight: bold !important;
+                padding-left: none !important;
+            }
+        }
+    }
+
+}
+
+
+.multiselect-item-checkbox input[type='checkbox']:focus+div:before,
+.multiselect-item-checkbox input[type='checkbox']:hover+div:before {
+    border-color: #547e6d !important;
+}
+
+
+
+.multiselect-item-checkbox input[type='checkbox']+div:before {
+    color: #547e6d !important;
+    border: 2px solid #547e6d !important;
+}
+
+.multiselect-item-checkbox input[type='checkbox']+div:after {
+    background-color: #547e6d !important;
+}
+
+
+.multiselect-item-checkbox input[type='checkbox']:checked+div:before {
+    animation: borderscale 200ms ease-in;
+    background: #547e6d !important;
+}
+
+@keyframes borderscale {
+    50% {
+        box-shadow: 0 0 0 2px #547e6d !important;
+    }
+}

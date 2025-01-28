@@ -15,6 +15,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { GoogleMap } from '@angular/google-maps';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { PropertieSearchbarComponent } from "./components/propertie-searchbar/propertie-searchbar.component";
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FormsModule } from '@angular/forms';
     AboutComponent,
     ContactComponent,
     PropertiesComponent,
-    WrapperComponent
+    WrapperComponent,
+    PropertieSearchbarComponent
+
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     NgxMaskPipe,
     GoogleMapsModule,
     GoogleMap,
-    HttpClientModule
+    HttpClientModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [provideNgxMask(), Title, Meta, provideClientHydration()],
   bootstrap: [AppComponent]

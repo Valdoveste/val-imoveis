@@ -24,6 +24,10 @@ export class PropertiesComponent implements OnInit {
     this.getPropertie();
   }
 
+  updateProperties(event: any) {
+    this.properties = event;
+  }
+
   toUpperFirstLetter(src: string) {
     let firstLetter: string = src.slice(0, 1).toUpperCase();
     let wihtOutFirstLetter: string = src.slice(1, src.length);

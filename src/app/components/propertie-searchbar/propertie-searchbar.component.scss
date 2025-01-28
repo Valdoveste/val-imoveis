@@ -1,0 +1,87 @@
+@import '../propertie/propertie.component.scss';
+
+.icon-item {
+    min-width: 140px !important;
+    height: 24px;
+
+    p {
+        font-size: .95rem;
+        font-weight: bold;
+
+        span {
+            margin-left: .2rem;
+            font-size: .90rem !important;
+            font-weight: normal !important;
+        }
+    }
+}
+
+#imoveis-busca {
+    .container {
+        .row {
+
+            .input-price {
+                // margin: 0 5px;
+
+                input {
+                    display: inline-block;
+                    border: 1px solid #adadad;
+                    width: 100%;
+                    padding: 6px 12px;
+                    margin-bottom: 0;
+                    font-weight: normal;
+                    line-height: 1.52857143;
+                    text-align: left;
+                    vertical-align: middle;
+                    cursor: pointer;
+                    background-image: none;
+                    border-radius: 4px;
+                }
+            }
+
+            .flex-container {
+                display: flex;
+
+                .flex-items {
+                    width: 100%;
+
+                    .select-lable {
+                        color: black;
+                        font-size: 1em;
+                        font-weight: 300;
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .flex-items:nth-child(1) {
+                    display: block;
+                    flex-grow: 0;
+                    flex-shrink: 1;
+                    flex-basis: auto;
+                    align-self: auto;
+                    order: 0;
+                }
+
+                .flex-items:nth-child(2) {
+                    display: block;
+                    flex-grow: 0;
+                    margin: 0 5px;
+                    flex-shrink: 1;
+                    flex-basis: auto;
+                    align-self: auto;
+                    order: 0;
+                }
+
+                .flex-items:nth-child(3) {
+                    display: block;
+                    flex-grow: 0;
+                    flex-shrink: 1;
+                    flex-basis: auto;
+                    align-self: auto;
+                    order: 0;
+                }
+            }
+
+        }
+    }
+}

@@ -8,6 +8,10 @@
           características únicas e potencialidades.</p>
       </div>
     </div>
+
+    <app-propertie-searchbar (eventSearchProperties)="updateProperties($event)"
+      [propertiesInfo]="properties"></app-propertie-searchbar>
+
     <div class="row">
       <div class="col-md-4 animate-box" *ngFor="let propertiesItem of properties">
         <div class="property">

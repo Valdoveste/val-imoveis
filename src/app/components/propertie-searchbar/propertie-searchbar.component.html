@@ -1,0 +1,98 @@
+<div id="imoveis-busca">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm d-flex flex-column">
+
+                <div class="flex-container">
+                    <div class="flex-items">
+                        <!-- <div class="input-price d-flex space-between">
+                            <input type="text" name="" class="mr-2">
+
+                            <input type="text" name="" class="">
+                        </div> -->
+                        <span class="select-lable">Tipo imóvel:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar Tipo imóvel'"
+                            [settings]="dropdownMultSeletcSettings" [data]="this.dropdownLists.PropertieType"
+                            [(ngModel)]="this.seletectedItems.PropertieType">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">Status imóvel:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar Status imóvel'"
+                            [settings]="dropdownMultSeletcSettings" [data]="this.dropdownLists.PropertieStatus"
+                            [(ngModel)]="this.seletectedItems.PropertieStatus">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">Cidade:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar Cidade'"
+                            [settings]="dropdownMultSeletcSettings" [data]="this.dropdownLists.PropertieCity"
+                            [(ngModel)]="this.seletectedItems.PropertieCity">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">Andar:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar Andar'"
+                            [settings]="dropdownMultSeletcSettings" [data]="this.dropdownLists.PropertieFloor"
+                            [(ngModel)]="this.seletectedItems.PropertieFloor">
+                        </ng-multiselect-dropdown>
+
+                    </div>
+
+                    <div class="flex-items">
+                        <span class="select-lable">Quantidade de banheiros:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar quantidade de banheiros'"
+                            [settings]="dropdownMultSeletcSettings" [data]="this.dropdownLists.PropertieBathrooms"
+                            [(ngModel)]="this.seletectedItems.PropertieBathrooms">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">Quantidade de dormitórios:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar quantidade de dormitórios'"
+                            [settings]="dropdownMultSeletcSettings" [data]="this.dropdownLists.PropertieDorms"
+                            [(ngModel)]="this.seletectedItems.PropertieDorms">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">Quantidade de vagas:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar quantidade de vagas'"
+                            [settings]="dropdownMultSeletcSettings" [data]="this.dropdownLists.PropertieSpots"
+                            [(ngModel)]="this.seletectedItems.PropertieSpots">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">Metragem(m²):</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar Metragem(m²)'"
+                            [settings]="dropdownMultSeletcSettings" [data]="this.dropdownLists.PropertieSquareFootage"
+                            [(ngModel)]="this.seletectedItems.PropertieSquareFootage">
+                        </ng-multiselect-dropdown>
+
+                    </div>
+
+                    <div class="flex-items">
+                        <span class="select-lable">Mobilha:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar Mobilha'"
+                            [settings]="dropdownSingleSeletcSettings" [data]="this.dropdownLists.PropertieFurniture"
+                            [(ngModel)]="this.seletectedItems.PropertieFurniture">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">Financiamento:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar Financiamento'"
+                            [settings]="dropdownSingleSeletcSettings" [data]="this.dropdownLists.PropertieFanancing"
+                            [(ngModel)]="this.seletectedItems.PropertieFanancing">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">FGTS:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar FGTS'"
+                            [settings]="dropdownSingleSeletcSettings" [data]="this.dropdownLists.PropertieFGTS"
+                            [(ngModel)]="this.seletectedItems.PropertieFGTS">
+                        </ng-multiselect-dropdown>
+
+                        <span class="select-lable">Pets:</span>
+                        <ng-multiselect-dropdown [placeholder]="'Selecionar Pets'"
+                            [settings]="dropdownSingleSeletcSettings" [data]="this.dropdownLists.PropertiePets"
+                            [(ngModel)]="this.seletectedItems.PropertiePets">
+                        </ng-multiselect-dropdown>
+
+                    </div>
+                </div>
+            </div>
+
+            <button (click)="search()" class="btn btn-primary mt-2 mb-4 w-100">Buscar</button>
+        </div>
+    </div>
+</div>

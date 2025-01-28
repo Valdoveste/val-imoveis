@@ -194,7 +194,7 @@ export class PropertieComponent implements OnInit {
     const collectionID = this.getRouteID();
 
     if (collectionID) {
-      this.PropertieService.getPropertie(collectionID)
+      this.PropertieService.getPropertieByID(collectionID)
         .subscribe({
           next: (response: PropertieModel) => {
             this.properties = response;
